@@ -8,6 +8,6 @@ import timber.log.Timber
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        Timber.plant(Timber.DebugTree())   // pretty, tagged logs in debug builds
+        Timber.plant(Timber.DebugTree())
     }
 }
