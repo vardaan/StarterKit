@@ -97,8 +97,8 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
-
-
+    // Core (Flow-based). If you only use Compose, this is enough.
+    implementation(libs.androidx.paging.runtime.ktx)
 
     // legacy GCM
     androidTestImplementation(libs.androidx.work.testing)
@@ -119,4 +119,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    testImplementation(libs.androidx.paging.testing)
+
 }

@@ -3,6 +3,10 @@ package com.mobiledev.starterkit.di
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
+import com.mobiledev.starterkit.HabitRepositoryManager
+import com.mobiledev.starterkit.data.local.AppDatabase
+import com.mobiledev.starterkit.data.local.HabitDao
+import com.mobiledev.starterkit.data.local.HabitRepository
 import com.mobiledev.starterkit.data.local.KeyValueStore
 import com.mobiledev.starterkit.data.local.SharedPrefsStore
 import dagger.Module
@@ -34,4 +38,11 @@ object StorageModule {
     fun provideDatabase(@ApplicationContext ctx: Context): AppDatabase =
         Room.databaseBuilder(ctx, AppDatabase::class.java, "app.db").build()
 
+    @Provides
+    @Singleton
+    fun provideHabbitDao(db: AppDatabase) = db.habitDao()
+
+    @Provides
+    @Singleton
+    fun provideHabbitRepository(dao: HabitDao) : HabitRepository = HabitRepositoryManager(dao)
 }
