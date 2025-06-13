@@ -10,6 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.mobiledev.starterkit.ui.theme.StarterKitTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,11 +20,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         enableEdgeToEdge()
         setContent {
-            Scaffold { innerPadding ->
-                Greeting("Vardan Sharma",Modifier.padding(innerPadding))
+            val navController = rememberNavController()
+            NavHost(navController = navController, startDestination = "greeting") {
+                composable("greeting") {
+                    GreetingScreen("Vardan Sharma")
+                }
             }
         }
     }
@@ -29,17 +34,20 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun GreetingScreen(name: String) {
+    Scaffold { innerPadding ->
+        Text(
+            text = "Hello $name!",
+            modifier = Modifier.padding(innerPadding)
+        )
+    }
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     StarterKitTheme {
-        Greeting("Android")
+        GreetingScreen("Android")
     }
 }

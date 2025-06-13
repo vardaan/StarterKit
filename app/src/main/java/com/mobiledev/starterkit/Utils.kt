@@ -1,4 +1,4 @@
-package com.mobiledev.starterkit.ui.screen
+package com.mobiledev.starterkit
 
 object Utils {
     fun formatElapsed(millis: Long): String {
