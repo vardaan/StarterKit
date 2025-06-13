@@ -10,8 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.mobiledev.starterkit.ui.screen.StopwatchScreen
 import com.mobiledev.starterkit.ui.theme.StarterKitTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,8 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Scaffold { innerPadding ->
-                val stopwatchViewModel = hiltViewModel<StopWatchViewModel>()
-                StopwatchScreen(Modifier.padding(innerPadding), stopwatchViewModel)
+                Greeting("Vardan Sharma",Modifier.padding(innerPadding))
             }
         }
     }
