@@ -29,9 +29,9 @@ object StorageModule {
     fun provideKeyValueStore(prefs: SharedPreferences): KeyValueStore =
         SharedPrefsStore(prefs)
 
-    @Provides
-    @Singleton
-    fun provideDatabase(@ApplicationContext ctx: Context): AppDatabase =
-        Room.databaseBuilder(ctx, AppDatabase::class.java, "app.db").build()
+//    @Provides
+//    @Singleton
+//    fun provideDatabase(@ApplicationContext ctx: Context): AppDatabase =
+//        Room.databaseBuilder(ctx, AppDatabase::class.java, "app.db").build()
 
 }
