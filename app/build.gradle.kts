@@ -5,7 +5,6 @@ plugins {
     kotlin("kapt")
     id ("com.google.dagger.hilt.android")
     kotlin("plugin.serialization") version "1.9.0" // match your Kotlin version
-
 }
 
 android {
